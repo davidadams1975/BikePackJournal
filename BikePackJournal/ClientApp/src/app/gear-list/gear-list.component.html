@@ -1,50 +1,57 @@
 <div class="container">
   <h3>Gear List</h3>
   <form #form="ngForm" novalidate>
-    <div class="form-group">
-      <label>Bicycle</label>
-      <input class="form-control" type="text" required placeholder="Bicycle" name="bicycle" ngModel />
+    <div class="form-group" [class.has-error]="bicycle.invalid && bicycle.touched">
+      <label class="control-label">Bicycle</label>
+      <input #bicycle="ngModel" class="form-control" type="text" required placeholder="Bicycle" name="bicycle"
+             [(ngModel)]="model.bicycle"/>
+      <div class="alert alert-danger" *ngIf="bicycle.invalid && bicycle.touched">Bicycle is required</div>
     </div>
-    <div class="form-group">
-      <label>Helmet</label>
-      <input class="form-control" type="text" required placeholder="Helment" name="helmet" ngModel />
+    <h4>{{ bicycle.invalid }}</h4>
+
+    <!--<div class="form-group">
+      <label>Model</label>
+      <input class="form-control" type="text" required placeholder="Model" name="bikeModel" [(ngModel)]="model.bikeModel" />
     </div>
+
     <div class="checkbox">
       <label>
-        <input type="checkbox" name="active" ngModel /> Active
+        <input type="checkbox" name="active" [(ngModel)]="model.isActive" /> Active
       </label>
     </div>
 
     <label>Bicycle Type</label>
     <div class="radio">
       <label>
-        <input type="radio" name="bicycle type" value="Road" />
+        <input type="radio" name="bicycleType" value="Road" [(ngModel)]="model.bicycleType" />
         Road
       </label>
     </div>
     <div class="radio">
       <label>
-        <input type="radio" name="bicycle type" value="Mountain" />
+        <input type="radio" name="bicycleType" value="Mountain" [(ngModel)]="model.bicycleType" />
         Mountain
       </label>
     </div>
     <div class="radio">
       <label>
-        <input type="radio" name="bicycle type" value="Gravel" />
+        <input type="radio" name="bicycleType" value="Gravel" [(ngModel)]="model.bicycleType"/>
         Gravel
       </label>
     </div>
 
     <div class="form-group">
-      <label>Activity Level</label>
-      <select class="form-control">
+      <label>activity level</label>
+      <select class="form-control" name="activityLevel" [(ngModel)]="model.activityLevel">
         <option *ngFor="let activityLevel of activityLevels">
           {{ activityLevel }}
         </option>
-        
       </select>
-    </div>
+    </div>-->
 
     <button class="btn btn-primary" type="submit">Ok</button>
   </form>
+  Model: {{ model | json }}
+  <br />
+  Angular: {{ form.value | json }}
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Bicycle } from '../models/bicycle.model';
 
 @Component({
   selector: 'app-gear-list',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GearListComponent implements OnInit {
   activityLevels = ['UltraEndurance Racing', 'Touring', 'Bikepacking'];
+  model = new Bicycle('Salsa', 'Cutthroat', true, 'Gravel','Touring');
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

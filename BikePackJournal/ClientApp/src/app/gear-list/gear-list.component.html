@@ -1,3 +1,50 @@
-<p>
-  gear-list works!
-</p>
+<div class="container">
+  <h3>Gear List</h3>
+  <form #form="ngForm" novalidate>
+    <div class="form-group">
+      <label>Bicycle</label>
+      <input class="form-control" type="text" required placeholder="Bicycle" name="bicycle" ngModel />
+    </div>
+    <div class="form-group">
+      <label>Helmet</label>
+      <input class="form-control" type="text" required placeholder="Helment" name="helmet" ngModel />
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="active" ngModel /> Active
+      </label>
+    </div>
+
+    <label>Bicycle Type</label>
+    <div class="radio">
+      <label>
+        <input type="radio" name="bicycle type" value="Road" />
+        Road
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="bicycle type" value="Mountain" />
+        Mountain
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="bicycle type" value="Gravel" />
+        Gravel
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Activity Level</label>
+      <select class="form-control">
+        <option *ngFor="let activityLevel of activityLevels">
+          {{ activityLevel }}
+        </option>
+        
+      </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Ok</button>
+  </form>
+</div>

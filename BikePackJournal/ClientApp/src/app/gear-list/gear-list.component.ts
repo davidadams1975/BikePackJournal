@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gear-list.component.css']
 })
 export class GearListComponent implements OnInit {
+  activityLevels = ['UltraEndurance Racing', 'Touring', 'Bikepacking'];
 
   constructor() { }
 

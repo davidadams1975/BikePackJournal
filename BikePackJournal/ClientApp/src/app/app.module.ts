@@ -32,6 +32,7 @@ import { SleepSetupComponent } from './gear-components/sleep-setup/sleep-setup.c
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'gear-list', component: GearListComponent }
     ])
   ],
   providers: [],

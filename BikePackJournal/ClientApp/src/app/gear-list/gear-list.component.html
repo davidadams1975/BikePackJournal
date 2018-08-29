@@ -4,12 +4,11 @@
     <div class="form-group" [class.has-error]="bicycle.invalid && bicycle.touched">
       <label class="control-label">Bicycle</label>
       <input #bicycle="ngModel" class="form-control" type="text" required placeholder="Bicycle" name="bicycle"
-             [(ngModel)]="model.bicycle"/>
+             [(ngModel)]="model.bicycle" />
       <div class="alert alert-danger" *ngIf="bicycle.invalid && bicycle.touched">Bicycle is required</div>
     </div>
-    <h4>{{ bicycle.invalid }}</h4>
 
-    <!--<div class="form-group">
+    <div class="form-group">
       <label>Model</label>
       <input class="form-control" type="text" required placeholder="Model" name="bikeModel" [(ngModel)]="model.bikeModel" />
     </div>
@@ -35,23 +34,23 @@
     </div>
     <div class="radio">
       <label>
-        <input type="radio" name="bicycleType" value="Gravel" [(ngModel)]="model.bicycleType"/>
+        <input type="radio" name="bicycleType" value="Gravel" [(ngModel)]="model.bicycleType" />
         Gravel
       </label>
     </div>
 
-    <div class="form-group">
-      <label>activity level</label>
-      <select class="form-control" name="activityLevel" [(ngModel)]="model.activityLevel">
+    <div class="form-group" [class.has-error]="hasActivityLevelError">
+      <label class="control-label">Activity Level</label>
+      <select class="form-control" #actLevel name="activityLevel"
+              (blur)="validateActivityLevel(actLevel.value)"
+              (change)="validateActivityLevel(actLevel.value)"
+              [(ngModel)]="model.activityLevel">
+        <option value="default">Select an Activity Level</option>
         <option *ngFor="let activityLevel of activityLevels">
           {{ activityLevel }}
         </option>
       </select>
-    </div>-->
-
-    <button class="btn btn-primary" type="submit">Ok</button>
+    </div>
+    <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Ok</button>
   </form>
-  Model: {{ model | json }}
-  <br />
-  Angular: {{ form.value | json }}
 </div>

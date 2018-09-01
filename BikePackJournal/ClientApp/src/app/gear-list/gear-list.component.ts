@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Bicycle } from '../models/bicycle.model';
+import { GearListService } from '../services/gear-list.service';
 
 @Component({
   selector: 'app-gear-list',
@@ -11,7 +12,7 @@ export class GearListComponent implements OnInit {
   model = new Bicycle('Salsa', 'Cutthroat', true, 'Gravel', 'default');
   hasActivityLevelError:boolean = false;
 
-  constructor() { }
+  constructor(private gearListService: GearListService) { }
 
   ngOnInit() {
   }

@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { GearListComponent } from './gear-list/gear-list.component';
 import { BicycleComponent } from './gear-components/bicycle/bicycle.component';
 import { SleepSetupComponent } from './gear-components/sleep-setup/sleep-setup.component';
+import { GearListService } from './services/gear-list.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { SleepSetupComponent } from './gear-components/sleep-setup/sleep-setup.c
       { path: 'gear-list', component: GearListComponent }
     ])
   ],
-  providers: [],
+  providers: [GearListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

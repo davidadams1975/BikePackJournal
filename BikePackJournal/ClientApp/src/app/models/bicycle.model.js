@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Bicycle = /** @class */ (function () {
-    function Bicycle(bicycle, bikeModel, isActive, bicycleType, activityLevel) {
-        this.bicycle = bicycle;
+    function Bicycle(brand, bikeModel, isActive, bicycleType, activityLevel) {
+        this.brand = brand;
         this.bikeModel = bikeModel;
         this.isActive = isActive;
         this.bicycleType = bicycleType;

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 import { Bicycle } from '../models/bicycle.model';
+import { GearListService } from '../services/gear-list.service';
+
 
 @Component({
   selector: 'app-gear-list',
@@ -7,18 +11,30 @@ import { Bicycle } from '../models/bicycle.model';
   styleUrls: ['./gear-list.component.css']
 })
 export class GearListComponent implements OnInit {
-  activityLevels = ['UltraEndurance Racing', 'Touring', 'Bikepacking'];
-  model = new Bicycle('Salsa', 'Cutthroat', true, 'Gravel', 'default');
+  activityLevels;
+  model;
   hasActivityLevelError:boolean = false;
 
-  constructor() { }
+  constructor(private gearListService: GearListService) { }
 
   ngOnInit() {
+    this.model = this.gearListService.getBicycle();
+    this.activityLevels = this.gearListService.getActivityLevels();
+  }
+
+  submitBicycleForm(form: NgForm) {
+    this.validateActivityLevel(this.model.activityLevel);
+    if (this.hasActivityLevelError) {
+      return;
+    }
+    this.gearListService.createBicycle(this.model)
+      //.subscribe(
+      //  data => console.log('success: ', data),
+      //  error => console.log('error', error)
+      //);
   }
 
   validateActivityLevel(value) {
-    console.log('lang: ' + value);
-    console.log(value);
     if (value === 'default') {
       this.hasActivityLevelError = true;
     } else {

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 
 import { Bicycle } from '../../models/bicycle.model';
 import { GearListService } from '../../services/gear-list.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,9 +14,11 @@ import { GearListService } from '../../services/gear-list.service';
 export class GearListComponent implements OnInit {
   activityLevels;
   model;
-  hasActivityLevelError:boolean = false;
+  hasActivityLevelError: boolean = false;
+  isDirty: boolean = true;
 
-  constructor(private gearListService: GearListService) { }
+
+  constructor(private gearListService: GearListService, private router: Router) { }
 
   ngOnInit() {
     this.model = this.gearListService.getBicycle();
@@ -32,6 +35,10 @@ export class GearListComponent implements OnInit {
       //  data => console.log('success: ', data),
       //  error => console.log('error', error)
       //);
+  }
+
+  cancel() {
+    this.router.navigate(['/']);
   }
 
   validateActivityLevel(value) {

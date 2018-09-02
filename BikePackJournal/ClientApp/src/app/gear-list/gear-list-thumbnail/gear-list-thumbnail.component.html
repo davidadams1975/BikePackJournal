@@ -1,4 +1,4 @@
-<div class="card shadow">
+<div [routerLink]="['/gear-list', gearList.id]" class="card shadow">
   <div class="card-header">{{ gearList?.name }}</div>
   <div class="card-body">
     <div>Bike: {{ gearList?.bikeBrand }}</div>
@@ -11,5 +11,5 @@
       <span class="pad-left">{{ gearList?.location?.city }}, {{ gearList?.location?.state }} {{ gearList?.location?.zip }}</span>
     </div>
   </div>
-  <button class="btn btn-primary" (click)="gearListThumbnailClick()">Details</button>
+  <!--<button class="btn btn-primary" (click)="gearListThumbnailClick()">Details</button>-->
 </div>

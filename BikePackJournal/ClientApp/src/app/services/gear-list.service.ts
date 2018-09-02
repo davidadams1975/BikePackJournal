@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import { Bicycle } from '../models/bicycle.model';
+import { Subject } from 'rxjs/Rx';
 
 @Injectable()
 export class GearListService {
@@ -19,7 +20,17 @@ export class GearListService {
   }
 
   getGearLists() {
-    return GEARLISTS;
+    let subject = new Subject();
+    setTimeout(() => { subject.next(GEARLISTS); subject.complete(); }, 10);
+    return subject;
+  }
+
+  //getGearLists() {
+  //  return GEARLISTS;
+  //}
+
+  getGearList(id: number) {
+    return GEARLISTS.find(gl => gl.id === id);
   }
 
   createBicycle(data) {
@@ -37,7 +48,7 @@ const GEARLISTS = [
     name: `David's Bikepacking Gear List`,
     date: '9/2/2018',
     time: '8:35am',
-    imageUrl: '/assets/images/monkey.jpg',
+    imageUrl: '../../../assets/images/monkey.JPG',
     bikeBrand: 'Salsa',
     bikeModel: 'Cutthroat',
     location: {
@@ -49,10 +60,10 @@ const GEARLISTS = [
   },
   {
     id: 2,
-    name: `Marks's Bikepacking Gear List`,
+    name: `Mark's Bikepacking Gear List`,
     date: '9/2/2018',
     time: '8:35am',
-    imageUrl: '/assets/images/monkey.jpg',
+    imageUrl: '../../../assets/images/monkey.JPG',
     bikeBrand: 'Salsa',
     bikeModel: 'Cutthroat',
     location: {
@@ -67,7 +78,7 @@ const GEARLISTS = [
     name: `Jim's Bikepacking Gear List`,
     date: '9/2/2018',
     time: '8:35am',
-    imageUrl: '/assets/images/monkey.jpg',
+    imageUrl: '../../../assets/images/monkey.JPG',
     bikeBrand: 'Salsa',
     bikeModel: 'Cutthroat',
     location: {
@@ -82,7 +93,7 @@ const GEARLISTS = [
     name: `Alyssa's Bikepacking Gear List`,
     date: '9/2/2018',
     time: '8:35am',
-    imageUrl: '/assets/images/monkey.jpg',
+    imageUrl: '../../../assets/images/monkey.JPG',
     bikeBrand: 'Salsa',
     bikeModel: 'Cutthroat',
     location: {
@@ -97,7 +108,7 @@ const GEARLISTS = [
     name: `Gareth's Bikepacking Gear List`,
     date: '9/2/2018',
     time: '8:35am',
-    imageUrl: '/assets/images/monkey.jpg',
+    imageUrl: '../../../assets/images/monkey.JPG',
     bikeBrand: 'Salsa',
     bikeModel: 'Cutthroat',
     location: {

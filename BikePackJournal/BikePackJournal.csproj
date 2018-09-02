@@ -26,15 +26,20 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\models\bicycle.model.ts" />
     <None Remove="ClientApp\src\app\services\gear-list.service.ts" />
+    <None Remove="ClientApp\src\app\users\user-routes.ts" />
+    <None Remove="ClientApp\src\app\users\user.module.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\gear-list\gear-components\" />
+    <Folder Include="ClientApp\src\app\errors\" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\bicycle.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\gear-list.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\users\user-routes.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\users\user.module.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

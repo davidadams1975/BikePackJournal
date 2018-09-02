@@ -1,0 +1,15 @@
+<div class="card shadow">
+  <div class="card-header">{{ gearList.name }}</div>
+  <div class="card-body">
+    <div>Bike: {{ gearList.bikeBrand }}</div>
+    <div>Model: {{ gearList.bikeModel }}</div>
+    <div>Date: {{ gearList.date }}</div>
+    <div>Time: {{ gearList.time }}</div>
+
+    <div>
+      <span>Location: {{ gearList.location.address }},</span>
+      <span class="pad-left">{{ gearList.location.city }}, {{ gearList.location.state }} {{ gearList.location.zip }}</span>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="gearListThumbnailClick()">Details</button>
+</div>

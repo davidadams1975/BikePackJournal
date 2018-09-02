@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { Bicycle } from '../models/bicycle.model';
-import { GearListService } from '../services/gear-list.service';
+import { Bicycle } from '../../models/bicycle.model';
+import { GearListService } from '../../services/gear-list.service';
 
 
 @Component({

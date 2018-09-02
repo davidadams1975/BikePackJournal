@@ -1,0 +1,11 @@
+<h2>Gear Lists</h2>
+<hr />
+<div class="row">
+  <div class="col">
+    <div class="card-deck">
+      <div *ngFor="let gearList of gearLists">
+        <app-gear-list-thumbnail [gearList]="gearList" (gearListClick)="handleGearListClicked($event)"></app-gear-list-thumbnail>
+      </div>
+    </div>
+  </div>
+</div>

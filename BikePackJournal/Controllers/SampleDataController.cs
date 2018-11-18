@@ -16,21 +16,21 @@ namespace BikePackJournal.Controllers
         };
 
         [HttpGet("[action]")]
-        public IList<Bicycle> GetBicycle()
+        public IActionResult GetBicycle()
         {
-            var bicycle = new Bicycle() { Brand = "Salsa", BikeModel = "Cutthroat", IsActive = true };
-            var bicycles = new List<Bicycle>();
-            bicycles.Add(bicycle);
+            //var bicycle = new BikeMake() { Brand = "Salsa", BikeModel = "Cutthroat", IsActive = true };
+            //var bicycles = new List<BikeMake>();
+            //bicycles.Add(bicycle);
 
-            return bicycles;
+            return Ok();
         }
 
-        [HttpPost]
-        public Bicycle PostBicycle([FromBody] Bicycle bicycle)
+        [HttpPost("[action]")]
+        public IActionResult PostBicycle([FromBody] BikeMake bicycle)
         {
-            var item = new Bicycle() { id = 1, Brand = bicycle.Brand, ActivityLevel = bicycle.ActivityLevel };
+            //BikeMake item = new BikeMake() { Id = 1, Brand = bicycle.Brand + "Your Mom", BikeModel= bicycle.BikeModel + "Your other Mom", ActivityLevel = bicycle.ActivityLevel };
 
-            return item;
+            return Ok();
         }
 
         [HttpGet("[action]")]

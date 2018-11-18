@@ -19,6 +19,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { GearListDetailsComponent } from './gear-list/gear-list-details/gear-list-details.component';
 import { Error404Component } from './errors/error404/error404.component';
 import { RouteActivatorService } from './services/route-activator.service';
+import { BikeMakeFormComponent } from './bike-make-form/bike-make-form.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { RouteActivatorService } from './services/route-activator.service';
     GearListThumbnailComponent,
     NavBarComponent,
     GearListDetailsComponent,
-    Error404Component
+    Error404Component,
+    BikeMakeFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
